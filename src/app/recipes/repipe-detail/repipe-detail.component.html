@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-xs-12">
+    <img 
+    [src]="recipy.imagepath" 
+    alt="" class="img-responsive" 
+    style="height: 200px;width: 300px;">
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <h1>{{recipy.name}}</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="btn-group " 
+    appDropdown>
+      <button type="button" 
+      class="btn btn-primary  dropdown-toggle " 
+      >
+      Manage Recipy <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" >
+      <li><a (click)="addToShopping()" style="cursor: pointer;">Shopping List</a></li>      
+      <li><a (click)="gotoedit()" style="cursor: pointer;">Edit Recipe</a></li>
+      <li><a (click)="removeRecipe()" style="cursor: pointer;">Delete Recipe</a></li>
+    </ul>
+    </div>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-xs-12 well">
+    {{recipy.details}}
+  </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+      <ul class="list-group">
+        <li class="list-group-item"
+        *ngFor="let ingr of recipy.ingredients">{{ingr.name}} - {{ingr.amount}} </li>
+      </ul>
+    </div>
+  </div>

@@ -1,0 +1,7 @@
+ul{
+    cursor: pointer;
+}
+
+.active{
+    background-color: aquamarine ;
+}

@@ -1,0 +1,28 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" routerLink="/">Recipe Book</a>
+    </div>
+    <ul class="nav navbar-nav" >
+      <li routerLinkActive="active"><a routerLink="recipes"  (click)="recipyselected()">recipes</a></li>
+      <li routerLinkActive="active"><a routerLink="shopping-list"  (click)="shoppingselected()">shopping list</a></li>
+      
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <ng-template [ngIf]="!authService.isAuthenticated()">
+          <li routerLinkActive="active"><a routerLink="signup"> <i class="fa fa-user-plus" style="font-size:auto;color:red"></i> SIGNUP</a></li>
+          <li routerLinkActive="active"><a routerLink="signin"> <i class="fa fa-user" style="font-size:auto;color:green"></i> LOGIN</a></li>
+        </ng-template>
+          <li ><a  *ngIf="authService.isAuthenticated()" (click)="authService.logout()" > Logout</a> </li>
+          <li class="dropdown" *ngIf="authService.isAuthenticated()">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Manage <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a (click)="onStoreData()" >Save Data</a></li>
+                <li><a (click)="onFetchData()" >Fetch Data</a></li>
+              </ul>
+            </li>
+          
+      
+    </ul>
+  </div>
+</nav>

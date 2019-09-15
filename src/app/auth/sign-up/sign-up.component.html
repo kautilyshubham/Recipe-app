@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row" >
+    <div class="col-sm-6 col-sm-offset-3" style="border: 5px solid rgb(255, 174, 0)">
+      <h2><i class="fa fa-user-plus" style="font-size:48px;color:rgb(30, 201, 164)"></i> Fillout your datails!!</h2>
+      <hr>
+      <form (ngSubmit)="onSignUp(f)" #f="ngForm" >
+        <div class="form-group">
+          <label for="">Name</label>
+          <input type="text" id="name" name="name" ngModel class="form-control" required >
+        </div>
+        <div class="form-group">
+            <label for="">Email Id</label>
+            <input type="email" id="email" name="email" ngModel class="form-control" required email>
+          </div>
+          <div class="form-group">
+              <label for="">Password</label>
+              <input type="password" id="pass" name="pass" ngModel class="form-control" required>
+            </div>
+            
+              <br>
+            <button class="btn btn-success" type="submit" [disabled]="!f.valid">Sign Up</button>
+            <button class="btn btn-danger" type="button" (click)="cancelForm()" >Cancel</button>
+      </form>
+    </div>
+  </div>
+</div>
